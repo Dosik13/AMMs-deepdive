@@ -136,8 +136,8 @@ contract DeployAndTest is Script {
         swapper.setSlippageTolerance(newTolerance);
         displaySlippageEvent(vm.getRecordedLogs());
 
-        console.log("  Old tolerance:", oldTolerance / 1e2, "percent");
-        console.log("  New tolerance:", swapper.getUserSlippageTolerance(deployer), "percent");
+        console.log("  Old tolerance:", oldTolerance , "bps");
+        console.log("  New tolerance:", swapper.getUserSlippageTolerance(deployer), "bps");
     }
 
     function displaySwapEvents(Vm.Log[] memory logs) internal pure {
@@ -264,8 +264,8 @@ contract DeployAndTest is Script {
         console.log("Token ID:", tokenId);
         console.log("Start liquidity:", startLiquidity);
 
-        uint256 amount0ToAdd = 100e18;
-        uint256 amount1ToAdd = 100e6;
+        uint256 amount0ToAdd = 80e18;
+        uint256 amount1ToAdd = 80e6;
 
         TransferHelper.safeApprove(WETH, address(swapper), 0);
         TransferHelper.safeApprove(WETH, address(swapper), amount0ToAdd);
